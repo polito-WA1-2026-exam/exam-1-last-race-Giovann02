@@ -1,0 +1,169 @@
+@baseUrl = http://localhost:3001
+@contentType = application/json
+
+### 
+# @name loginMarco
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "Marco",
+  "password": "pass123"
+}
+
+### 
+# @name loginLucia
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "Lucia",
+  "password": "pass456"
+}
+
+### 
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "Marco",
+  "password": "wrong_password"
+}
+
+### 
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "nonexistent",
+  "password": "any"
+}
+
+### 
+GET {{baseUrl}}/api/auth/me
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+### 
+GET {{baseUrl}}/api/auth/me
+
+### 
+GET {{baseUrl}}/api/user/profile
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+### 
+POST {{baseUrl}}/api/auth/logout
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+### 
+GET {{baseUrl}}/api/network
+
+### 
+GET {{baseUrl}}/api/segments
+
+### 
+POST {{baseUrl}}/api/game/start
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+### 
+POST {{baseUrl}}/api/game/submit
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+{
+  "route": [
+    { "stationA": 1, "stationB": 2, "stationAName": "Centrale", "stationBName": "Porta Velaria" },
+    { "stationA": 2, "stationB": 5, "stationAName": "Porta Velaria", "stationBName": "Fontana Oscura" },
+    { "stationA": 5, "stationB": 9, "stationAName": "Fontana Oscura", "stationBName": "Campo dell'Eco" }
+  ]
+}
+
+### 
+POST {{baseUrl}}/api/game/submit
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+{
+  "route": [
+    { "stationA": 3, "stationB": 4, "stationAName": "Crocevia", "stationBName": "Piazza" }
+  ]
+}
+
+### 
+POST {{baseUrl}}/api/game/submit
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+{
+  "route": []
+}
+
+### 
+GET {{baseUrl}}/api/game/result
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+### 
+POST {{baseUrl}}/api/game/finish
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+{
+  "score": 23
+}
+
+### 
+GET {{baseUrl}}/api/leaderboard
+
+### 
+GET {{baseUrl}}/api/leaderboard?limit=5
+
+### 
+POST {{baseUrl}}/api/game/submit
+Content-Type: {{contentType}}
+
+{
+  "route": []
+}
+
+### 
+POST {{baseUrl}}/api/game/start
+Content-Type: {{contentType}}
+
+### 
+GET {{baseUrl}}/api/game/result
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+### 
+POST {{baseUrl}}/api/game/submit
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+{
+  "route": [
+    { "stationA": 999, "stationB": 998, "stationAName": "Fake", "stationBName": "Stations" }
+  ]
+}
+
+### 
+POST {{baseUrl}}/api/game/submit
+Content-Type: {{contentType}}
+Cookie: {{loginMarco.response.headers.Set-Cookie}}
+
+{
+  "route": [
+    { "stationA": 1, "stationB": 2, "stationAName": "Centrale", "stationBName": "Porta Velaria" },
+    { "stationA": 2, "stationB": 3, "stationAName": "Porta Velaria", "stationBName": "Crocevia" }
+  ]
+}
+
+### 
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "Giulia",
+  "password": "pass789"
+}
+
+### 
+GET http://localhost:3001/api/sessions/current
