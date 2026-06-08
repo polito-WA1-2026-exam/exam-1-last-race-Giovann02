@@ -252,7 +252,7 @@ app.get('/api/user/profile', isLoggedIn, async (req, res) => {
     const history = await getUserGameHistory(req.user.id);
     
     const userRow = await getUserById(req.user.id);
-    const record=history.reduce((max, game) => game.score > max ? game.score : max, 0);
+    const sumScore = history.reduce((sum, game) => sum + game.score, 0);
     
     if (!userRow) {
       return res.status(404).json({ error: "User didn't find in DB." });
@@ -260,8 +260,8 @@ app.get('/api/user/profile', isLoggedIn, async (req, res) => {
     
     res.json({
       username: userRow.username,
-      totalCredits: userRow.best_score || 0, 
-      bestScore: record,
+      totalCredits: sumScore, 
+      bestScore: userRow.best_score || 0,
       gamesPlayed: history.length,
       history: history
     });

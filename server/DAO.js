@@ -50,7 +50,7 @@ export const updateBestScore = (userId, score) => {
   return new Promise((resolve, reject) => {
     const sql = `
       UPDATE users 
-      SET best_score = COALESCE(best_score, 0) + ? 
+      SET best_score = MAX(best_score, ?)
       WHERE id = ?
     `;
     db.run(sql, [score, userId], function (err) {
