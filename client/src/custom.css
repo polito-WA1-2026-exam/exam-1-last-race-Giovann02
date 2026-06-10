@@ -1,0 +1,31 @@
+body {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #dee2e6;
+}
+
+.network-canvas {
+  background: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+}
+
+.step-alert {
+  border-left: 4px solid #0dcaf0;
+  transition: all 0.3s ease;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+}
