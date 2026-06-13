@@ -16,7 +16,23 @@ function Header({ onLogout }) {
           <Nav.Link as={Link} to="/instructions">Instructions</Nav.Link>
           {user?.id && <Nav.Link as={Link} to="/leaderboard">Ranking</Nav.Link>}
         </Nav>
-        {/*to complete */}
+        <div>
+          {user?.id ? (
+            <div className="d-flex align-items-center gap-3 text-white">
+              
+              <Link 
+                to="/profile" 
+                className="text-decoration-none text-white fw-bold d-flex align-items-center gap-1"
+                title="Vai al profilo"
+              >
+                👤 {user.username ? user.username.charAt(0).toUpperCase() + user.username.slice(1) : "Profilo"}
+              </Link>
+              <Button variant="outline-light" size="sm" onClick={onLogout}>Logout</Button>
+            </div>
+          ) : (
+            <Button variant="primary" size="sm" onClick={() => navigate('/login')}>Login</Button>
+          )}
+        </div>
       </Container>
     </Navbar>
   );
