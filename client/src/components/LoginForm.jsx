@@ -20,7 +20,8 @@ function LoginForm({ onLoginSuccess }) {
       lasciando la pagina web intatta, fluida e senza fastidiosi ricaricamenti visivi. */
     setError('') //svuota eventuali errori
     try {
-      const user = await doLogin(username, password) //funzione asincrona -> auth.js
+      let username_noSpace=username.replace(/\s+/g, '');
+      const user = await doLogin(username_noSpace, password) //funzione asincrona -> auth.js
       onLoginSuccess(user)  //callback, comunica al padre cche il login è andato a abuon fine, permettendo a App.jsx di salvare i dati dell'utente nello stato globale 
       navigate('/play')
     } catch (ex) {

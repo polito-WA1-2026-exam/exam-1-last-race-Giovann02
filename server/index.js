@@ -347,7 +347,7 @@ app.get('/api/game/result', isLoggedIn, (req, res) => {
 });
 
 
-app.get('/api/leaderboard',isLoggedIn ,async (req, res) => {
+app.get('/api/leaderboard',async (req, res) => {
   try {
     const leaderboard = await getLeaderboard(10); //prende i primi 10
     res.json(leaderboard);

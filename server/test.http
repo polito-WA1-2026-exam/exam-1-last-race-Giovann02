@@ -51,7 +51,7 @@ GET {{baseUrl}}/api/user/profile
 Cookie: {{loginMarco.response.headers.Set-Cookie}}
 
 ### 
-POST {{baseUrl}}/api/auth/logout
+DELETE  {{baseUrl}}/api/sessions/current
 Cookie: {{loginMarco.response.headers.Set-Cookie}}
 
 ### 

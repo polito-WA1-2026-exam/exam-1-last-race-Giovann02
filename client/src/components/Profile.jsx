@@ -35,7 +35,7 @@ function Profile() {
 
   return (
     <Container className="py-4">
-      <Row className="mb-4">
+      <Row className="mb-2">
         <Col>
           <h2 className="fw-bold">👤 Player Profile</h2>
           <p className="text-muted">Welcome to your control board, {profileData.username}!</p>

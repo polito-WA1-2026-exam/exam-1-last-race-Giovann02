@@ -1,12 +1,14 @@
 async function getNetwork() {
   const res = await fetch('http://localhost:3001/api/network');
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Network error');
 }
 
 async function getSegments() {
   const res = await fetch('http://localhost:3001/api/segments');
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Network error');
 }
 
@@ -15,7 +17,8 @@ async function startGame() {
     method: 'POST', 
     credentials: 'include' 
   });
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Game start failed');
 }
 
@@ -26,7 +29,8 @@ async function submitRoute(route) {
     body: JSON.stringify({ route }),
     credentials: 'include'
   });
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Route submit failed');
 }
 
@@ -37,13 +41,15 @@ async function finishGame(score) {
     body: JSON.stringify({ score }),
     credentials: 'include'
   });
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Game finish failed');
 }
 
 async function getLeaderboard() {
   const res = await fetch('http://localhost:3001/api/leaderboard');
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Leaderboard error');
 }
 
@@ -52,7 +58,8 @@ async function getUserProfile() {
     method: 'GET',
     credentials: 'include' 
   });
-  if (res.ok) return await res.json();
+  if (res.ok) 
+    return await res.json();
   throw new Error('Impossible to upload user profile');
 }
 

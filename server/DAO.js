@@ -135,7 +135,8 @@ export const getSegments = () => {
     // collegamento, una volta come Stazione A ↔ Stazione B e una volta come Stazione B ↔ Stazione A.
     //  Imponendo che la posizione della prima sia minore della seconda, si forza un unico ordine di estrazione, dimezzando le righe inutili.
     db.all(sql, [], (err, rows) => {
-      if (err) return reject(err);
+      if (err) 
+        return reject(err);
       resolve(rows);
     });
   });

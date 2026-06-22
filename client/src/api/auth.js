@@ -21,11 +21,12 @@ async function doLogin(username, password) {
 }
 
 async function doLogout() {
-  const response = await fetch('http://localhost:3001/api/auth/logout', {
-    method: 'POST',
+  const response = await fetch('http://localhost:3001/api/sessions/current', {
+    method: 'DELETE',
     credentials: 'include'
   });
-  if (!response.ok) throw new Error("Logout failed");
+  if (!response.ok) 
+    throw new Error("Logout failed");
   return true;
 }
 
