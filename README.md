@@ -448,13 +448,8 @@
 
 ## Screenshot
 
-![Screenshot](/img/home_anonymous.png)
-![Screenshot](/img/instructions.png)
-![Screenshot](/img/form_login.png)
-![Screenshot](/img/home_user.png)
-![Screenshot](/img/gaming.png)
 ![Screenshot](/img/RANKING.png)
-![Screenshot](/img/profile.png)
+![Screenshot](/img/gaming.png)
 
 
 
